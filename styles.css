@@ -412,15 +412,15 @@ body {
 
 .search-input {
   width: 100%;
-  max-width: 500px;
-  padding: 1.2rem 1.5rem;
-  font-size: 1.1rem;
+  max-width: 700px;
+  padding: 1.8rem 2rem;
+  font-size: 1.4rem;
   border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
   outline: none;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
 }
@@ -442,14 +442,15 @@ body {
 }
 
 .engine-btn {
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 2rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: 15px;
   color: #e0e0e0;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 500;
+  font-size: 1.1rem;
   backdrop-filter: blur(10px);
 }
 

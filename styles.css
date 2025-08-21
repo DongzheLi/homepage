@@ -68,18 +68,18 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* New Grid Positioning */
+/* Fixed Grid Positioning */
 /* Top row */
 .welcome-card { 
   grid-column: 1; 
   grid-row: 1; 
 }
-.pomodoro-card { 
+.weather-card { 
   grid-column: 2; 
   grid-row: 1; 
 }
-.weather-card { 
-  grid-column: 3; 
+.pomodoro-card { 
+  grid-column: 3 / 5; 
   grid-row: 1; 
 }
 /* Middle row */
@@ -108,17 +108,17 @@ body {
   grid-column: 4; 
   grid-row: 3; 
 }
-/* Hide time card for now, will be merged with welcome */
+/* Hide time card */
 .time-card { 
   display: none; 
 }
 
 /* Card Titles */
 .card-title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: #4a9eff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   text-align: center;
   text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
 }
@@ -143,29 +143,31 @@ body {
 }
 
 .welcome {
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
   background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: none;
   margin: 0;
+  line-height: 1.2;
 }
 
 .weather-info {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
+  gap: 0.6rem;
+  font-size: 1rem;
   color: #b0b0b0;
+  margin-top: 0.3rem;
 }
 
 .time-section {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  min-width: 100px;
+  gap: 0.5rem;
+  min-width: 120px;
   text-align: right;
 }
 
@@ -173,21 +175,21 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
 .time-label {
-  font-size: 0.7rem;
-  color: #888;
-  font-weight: 500;
+  font-size: 0.8rem;
+  color: #999;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  min-width: 35px;
+  letter-spacing: 0.1em;
+  min-width: 40px;
 }
 
 .time-value {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: #4a9eff;
   font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
 }
@@ -200,9 +202,10 @@ body {
 }
 
 .todo-item {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #e0e0e0;
-  opacity: 0.8;
+  opacity: 0.9;
+  line-height: 1.4;
 }
 
 /* Time Card */
@@ -473,12 +476,12 @@ body {
 }
 
 .link-icon {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .link-label {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* Bookmark Cards */
@@ -490,10 +493,10 @@ body {
 
 .bookmark-item {
   display: block;
-  padding: 0.8rem 1rem;
+  padding: 1rem 1.2rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: 12px;
   color: #e0e0e0;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -529,13 +532,14 @@ body {
 
 .bookmark-item .bookmark-title {
   font-weight: 600;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+  line-height: 1.3;
 }
 
 .bookmark-item .bookmark-url {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #a0a0a0;
   opacity: 0.8;
 }

@@ -9,9 +9,17 @@
   <body>
     <div class="container">
       <div class="card-grid">
-        <!-- Welcome Card -->
+        <!-- Combined Info Card -->
         <div class="card welcome-card">
-          <div class="welcome" id="welcomeMessage">Good morning, Wei</div>
+          <div class="info-header">
+            <div class="welcome" id="welcomeMessage">Good morning, Wei</div>
+            <div class="local-time" id="localTime">21:50:06</div>
+          </div>
+          <div class="weather-info">
+            <span id="weather-icon">🌤️</span>
+            <span id="temp">20°C</span>
+            <span class="location" id="location">📍 Markham</span>
+          </div>
         </div>
 
         <!-- Time Card -->
@@ -30,11 +38,13 @@
           </div>
         </div>
 
-        <!-- Weather Card -->
+        <!-- Todo List Card -->
         <div class="card weather-card">
-          <div class="weather" id="weather">
-            <span>🌤️</span>
-            <span id="temp">22°C</span>
+          <div class="card-title">Todo</div>
+          <div class="todo-list">
+            <div class="todo-item">• Review PRs</div>
+            <div class="todo-item">• Update docs</div>
+            <div class="todo-item">• Fix bug #123</div>
           </div>
         </div>
 
@@ -74,7 +84,7 @@
             type="text"
             class="search-input"
             id="searchInput"
-            placeholder="Search the web... v4"
+            placeholder="Search the web... v5"
           />
           <div class="search-engines">
             <button class="engine-btn active" data-engine="google">
@@ -162,6 +172,25 @@
             <a href="https://reactjs.org" class="bookmark-item">
               <div class="bookmark-title">React</div>
               <div class="bookmark-url">reactjs.org</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Entertainment Card -->
+        <div class="card bookmark-card">
+          <div class="card-title">Entertainment</div>
+          <div class="bookmark-list">
+            <a href="https://youtube.com" class="bookmark-item">
+              <div class="bookmark-title">YouTube</div>
+              <div class="bookmark-url">youtube.com</div>
+            </a>
+            <a href="https://netflix.com" class="bookmark-item">
+              <div class="bookmark-title">Netflix</div>
+              <div class="bookmark-url">netflix.com</div>
+            </a>
+            <a href="https://reddit.com" class="bookmark-item">
+              <div class="bookmark-title">Reddit</div>
+              <div class="bookmark-url">reddit.com</div>
             </a>
           </div>
         </div>

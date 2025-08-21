@@ -33,10 +33,25 @@ function updateTime() {
   });
 
   // Update display
-  document.getElementById("localTime").textContent = localTimeString;
-  document.getElementById("localDate").textContent = localDateString;
-  document.getElementById("utcTime").textContent = utcTimeString;
-  document.getElementById("utcDate").textContent = utcDateString;
+  const localTimeElement = document.getElementById("localTime");
+  if (localTimeElement) {
+    localTimeElement.textContent = localTimeString;
+  }
+  
+  const localDateElement = document.getElementById("localDate");
+  if (localDateElement) {
+    localDateElement.textContent = localDateString;
+  }
+  
+  const utcTimeElement = document.getElementById("utcTime");
+  if (utcTimeElement) {
+    utcTimeElement.textContent = utcTimeString;
+  }
+  
+  const utcDateElement = document.getElementById("utcDate");
+  if (utcDateElement) {
+    utcDateElement.textContent = utcDateString;
+  }
 
   // Update welcome message based on local time
   const hour = now.getHours();
@@ -113,20 +128,15 @@ function displayWeather(data) {
   const temperature = Math.round(currentCondition.temp_C);
   const location = data.nearest_area[0].areaName[0].value;
 
-  const weatherIcon = weatherConditionMap[weatherDesc] || "🌤️";
+  const weatherIconText = weatherConditionMap[weatherDesc] || "🌤️";
 
-  document.querySelector("#weather span").textContent = weatherIcon;
-  document.getElementById("temp").textContent = `${temperature}°C`;
-
-  const weatherDiv = document.getElementById("weather");
-  if (!weatherDiv.querySelector(".location")) {
-    const locationSpan = document.createElement("span");
-    locationSpan.className = "location";
-    locationSpan.textContent = `📍 ${location}`;
-    weatherDiv.appendChild(locationSpan);
-  } else {
-    weatherDiv.querySelector(".location").textContent = `📍 ${location}`;
-  }
+  const weatherIconElement = document.getElementById("weather-icon");
+  const tempElement = document.getElementById("temp");
+  const locationElement = document.getElementById("location");
+  
+  if (weatherIconElement) weatherIconElement.textContent = weatherIconText;
+  if (tempElement) tempElement.textContent = `${temperature}°C`;
+  if (locationElement) locationElement.textContent = `📍 ${location}`;
 }
 
 // Fallback function for Toronto weather

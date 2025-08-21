@@ -38,11 +38,11 @@ body {
   margin-top: 2rem;
 }
 
-/* Simplified Grid Layout */
+/* Optimized Layout */
 .card-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-rows: 120px 140px 1fr;
   gap: 1rem;
   height: calc(100vh - 4rem);
 }
@@ -67,12 +67,13 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Direct Grid Positioning */
+/* New Grid Positioning */
+/* Top row */
 .welcome-card { 
   grid-column: 1; 
   grid-row: 1; 
 }
-.time-card { 
+.pomodoro-card { 
   grid-column: 2; 
   grid-row: 1; 
 }
@@ -80,29 +81,35 @@ body {
   grid-column: 3; 
   grid-row: 1; 
 }
-.pomodoro-card { 
-  grid-column: 4; 
-  grid-row: 1; 
-}
+/* Middle row */
 .search-card { 
-  grid-column: 1 / 3; 
+  grid-column: 1 / 4; 
   grid-row: 2; 
 }
 .quick-links-card { 
-  grid-column: 3 / 5; 
+  grid-column: 4; 
   grid-row: 2; 
 }
+/* Bottom row - 4 bookmark categories */
 .bookmark-card:nth-child(8) { 
-  grid-column: 1 / 2; 
-  grid-row: 3 / 5; 
+  grid-column: 1; 
+  grid-row: 3; 
 }
 .bookmark-card:nth-child(9) { 
-  grid-column: 2 / 3; 
-  grid-row: 3 / 5; 
+  grid-column: 2; 
+  grid-row: 3; 
 }
 .bookmark-card:nth-child(10) { 
-  grid-column: 3 / 5; 
-  grid-row: 3 / 5; 
+  grid-column: 3; 
+  grid-row: 3; 
+}
+.bookmark-card:nth-child(11) { 
+  grid-column: 4; 
+  grid-row: 3; 
+}
+/* Hide time card for now, will be merged with welcome */
+.time-card { 
+  display: none; 
 }
 
 /* Card Titles */
@@ -115,17 +122,53 @@ body {
   text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
 }
 
-/* Welcome Card */
+/* Combined Info Card */
 .welcome-card {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .welcome {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 300;
   color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  margin: 0;
+}
+
+.local-time {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4a9eff;
+  font-family: 'FiraCode Nerd Font Mono', monospace;
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+/* Todo List */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.todo-item {
+  font-size: 0.85rem;
+  color: #e0e0e0;
+  opacity: 0.8;
 }
 
 /* Time Card */

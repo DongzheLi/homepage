@@ -1,4 +1,4 @@
-// Update time, date, and welcome message
+// Update time, date, welcome message, and analog clock
 function updateTime() {
   const now = new Date();
 
@@ -52,6 +52,32 @@ function updateTime() {
   else greeting = "Good night";
 
   document.getElementById("welcomeMessage").textContent = `${greeting}, Wei`;
+
+  // Update analog clock
+  updateAnalogClock(now);
+}
+
+// Update analog clock hands
+function updateAnalogClock(now) {
+  const hourHand = document.getElementById("hourHand");
+  const minuteHand = document.getElementById("minuteHand");
+  const secondHand = document.getElementById("secondHand");
+
+  if (hourHand && minuteHand && secondHand) {
+    const hours = now.getHours() % 12;
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    // Calculate rotation angles
+    const hourAngle = (hours * 30) + (minutes * 0.5); // 30 degrees per hour + minute adjustment
+    const minuteAngle = minutes * 6; // 6 degrees per minute
+    const secondAngle = seconds * 6; // 6 degrees per second
+
+    // Apply rotations
+    hourHand.style.transform = `translateX(-50%) rotate(${hourAngle}deg)`;
+    minuteHand.style.transform = `translateX(-50%) rotate(${minuteAngle}deg)`;
+    secondHand.style.transform = `translateX(-50%) rotate(${secondAngle}deg)`;
+  }
 }
 
 // Weather API optimization - only call once per hour

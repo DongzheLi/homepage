@@ -81,9 +81,9 @@ body {
 .pomodoro-card { grid-area: pomodoro; }
 .search-card { grid-area: search; }
 .quick-links-card { grid-area: quick; }
-.bookmark-card:nth-of-type(7) { grid-area: ai; }
-.bookmark-card:nth-of-type(8) { grid-area: dev; }
-.bookmark-card:nth-of-type(9) { grid-area: docs; }
+.bookmark-card:nth-child(8) { grid-area: ai; }
+.bookmark-card:nth-child(9) { grid-area: dev; }
+.bookmark-card:nth-child(10) { grid-area: docs; }
 
 /* Card Titles */
 .card-title {

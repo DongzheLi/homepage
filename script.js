@@ -167,6 +167,11 @@ updateTime();
 updateWeather();
 setInterval(updateTime, 1000);
 
+// Auto-focus search input on page load
+window.addEventListener('load', () => {
+  searchInput.focus();
+});
+
 // Search functionality
 const searchInput = document.getElementById("searchInput");
 const engineButtons = document.querySelectorAll(".engine-btn");

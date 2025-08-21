@@ -38,13 +38,20 @@ body {
   margin-top: 2rem;
 }
 
-/* Card Grid Layout */
+/* Tiling Window Manager Layout */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  grid-auto-rows: minmax(auto, max-content);
-  align-items: start;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, minmax(120px, auto));
+  gap: 1rem;
+  height: calc(100vh - 4rem);
+  grid-template-areas:
+    "welcome welcome welcome time time time weather weather pomodoro pomodoro pomodoro pomodoro"
+    "search search search search search search search search quick quick quick quick"
+    "ai ai ai ai dev dev dev dev docs docs docs docs"
+    "ai ai ai ai dev dev dev dev docs docs docs docs"
+    ". . . . . . . . . . . ."
+    ". . . . . . . . . . . .";
 }
 
 /* Base Card Styles */
@@ -67,10 +74,16 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Card Size Variants */
-.card-wide {
-  grid-column: span 2;
-}
+/* Card Grid Areas */
+.welcome-card { grid-area: welcome; }
+.time-card { grid-area: time; }
+.weather-card { grid-area: weather; }
+.pomodoro-card { grid-area: pomodoro; }
+.search-card { grid-area: search; }
+.quick-links-card { grid-area: quick; }
+.bookmark-card:nth-of-type(7) { grid-area: ai; }
+.bookmark-card:nth-of-type(8) { grid-area: dev; }
+.bookmark-card:nth-of-type(9) { grid-area: docs; }
 
 /* Card Titles */
 .card-title {
@@ -430,30 +443,41 @@ body {
   opacity: 0.8;
 }
 
-/* Responsive Design */
+/* Responsive Tiling Layout */
 @media (max-width: 1200px) {
   .card-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, minmax(100px, auto));
+    grid-template-areas:
+      "welcome welcome welcome time time time weather weather"
+      "pomodoro pomodoro pomodoro pomodoro search search search search"
+      "quick quick quick quick search search search search"
+      "ai ai ai ai dev dev dev dev"
+      "ai ai ai ai dev dev dev dev"
+      "docs docs docs docs . . . ."
+      "docs docs docs docs . . . ."
+      ". . . . . . . .";
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .card-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .card-wide {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 600px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .card-wide {
-    grid-column: span 1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(12, minmax(80px, auto));
+    height: auto;
+    grid-template-areas:
+      "welcome welcome welcome welcome"
+      "time time weather weather"
+      "pomodoro pomodoro pomodoro pomodoro"
+      "search search search search"
+      "quick quick quick quick"
+      "ai ai ai ai"
+      "ai ai ai ai"
+      "dev dev dev dev"
+      "dev dev dev dev"
+      "docs docs docs docs"
+      "docs docs docs docs"
+      ". . . .";
   }
 }
 

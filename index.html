@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Start</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -11,31 +14,30 @@
       <div class="card-grid">
         <!-- Combined Info Card -->
         <div class="card welcome-card">
-          <div class="info-header">
-            <div class="welcome" id="welcomeMessage">Good morning, Wei</div>
-            <div class="local-time" id="localTime">21:50:06</div>
-          </div>
-          <div class="weather-info">
-            <span id="weather-icon">🌤️</span>
-            <span id="temp">20°C</span>
-            <span class="location" id="location">📍 Markham</span>
+          <div class="info-main">
+            <div class="welcome-section">
+              <div class="welcome" id="welcomeMessage">Good morning, Wei</div>
+              <div class="weather-info">
+                <span id="weather-icon">🌤️</span>
+                <span id="temp">20°C</span>
+                <span class="location" id="location">📍 Markham</span>
+              </div>
+            </div>
+            <div class="time-section">
+              <div class="time-row">
+                <span class="time-label">LOCAL</span>
+                <span class="time-value" id="localTime">19:21:27</span>
+              </div>
+              <div class="time-row">
+                <span class="time-label">UTC</span>
+                <span class="time-value" id="utcTime">02:01:51</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Time Card -->
-        <div class="card time-card">
-          <div class="datetime">
-            <div class="time-section">
-              <div class="time-label">Local</div>
-              <div class="time-value" id="localTime">19:21:27</div>
-              <div class="time-date" id="localDate">Wednesday, Aug 20</div>
-            </div>
-            <div class="time-section">
-              <div class="time-label">UTC</div>
-              <div class="time-value" id="utcTime">23:21:27</div>
-              <div class="time-date" id="utcDate">Wednesday, Aug 20</div>
-            </div>
-          </div>
+        <div class="card time-card" style="display: none;">
         </div>
 
         <!-- Todo List Card -->
@@ -84,7 +86,7 @@
             type="text"
             class="search-input"
             id="searchInput"
-            placeholder="Search the web... v5"
+            placeholder="Search the web... v6"
           />
           <div class="search-engines">
             <button class="engine-btn active" data-engine="google">

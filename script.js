@@ -38,19 +38,9 @@ function updateTime() {
     localTimeElement.textContent = localTimeString;
   }
   
-  const localDateElement = document.getElementById("localDate");
-  if (localDateElement) {
-    localDateElement.textContent = localDateString;
-  }
-  
   const utcTimeElement = document.getElementById("utcTime");
   if (utcTimeElement) {
     utcTimeElement.textContent = utcTimeString;
-  }
-  
-  const utcDateElement = document.getElementById("utcDate");
-  if (utcDateElement) {
-    utcDateElement.textContent = utcDateString;
   }
 
   // Update welcome message based on local time

@@ -65,15 +65,14 @@ async function updateWeather() {
   }
 
   try {
-    // Get user's location
+    // Try to get user's location first
     const position = await new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
+      navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 5000 });
     });
 
     const { latitude, longitude } = position.coords;
-    const API_KEY = "f38370c50f4dd98e1dc1f2f2946a8d6b";
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`,
+      `https://wttr.in/${latitude},${longitude}?format=j1`,
     );
 
     if (!response.ok) throw new Error("Weather API failed");
@@ -92,30 +91,29 @@ async function updateWeather() {
 }
 
 function displayWeather(data) {
-  const iconMap = {
-    "01d": "☀️",
-    "01n": "🌙",
-    "02d": "⛅",
-    "02n": "☁️",
-    "03d": "☁️",
-    "03n": "☁️",
-    "04d": "☁️",
-    "04n": "☁️",
-    "09d": "🌧️",
-    "09n": "🌧️",
-    "10d": "🌦️",
-    "10n": "🌧️",
-    "11d": "⛈️",
-    "11n": "⛈️",
-    "13d": "❄️",
-    "13n": "❄️",
-    "50d": "🌫️",
-    "50n": "🌫️",
+  const weatherConditionMap = {
+    "Sunny": "☀️",
+    "Clear": "☀️", 
+    "Partly cloudy": "⛅",
+    "Cloudy": "☁️",
+    "Overcast": "☁️",
+    "Mist": "🌫️",
+    "Fog": "🌫️",
+    "Light rain": "🌦️",
+    "Heavy rain": "🌧️",
+    "Rain": "🌧️",
+    "Thunderstorm": "⛈️",
+    "Snow": "❄️",
+    "Light snow": "❄️",
+    "Heavy snow": "❄️"
   };
 
-  const weatherIcon = iconMap[data.weather[0].icon] || "🌤️";
-  const temperature = Math.round(data.main.temp);
-  const location = data.name;
+  const currentCondition = data.current_condition[0];
+  const weatherDesc = currentCondition.weatherDesc[0].value;
+  const temperature = Math.round(currentCondition.temp_C);
+  const location = data.nearest_area[0].areaName[0].value;
+
+  const weatherIcon = weatherConditionMap[weatherDesc] || "🌤️";
 
   document.querySelector("#weather span").textContent = weatherIcon;
   document.getElementById("temp").textContent = `${temperature}°C`;
@@ -134,9 +132,8 @@ function displayWeather(data) {
 // Fallback function for Toronto weather
 async function getTorontoWeather() {
   try {
-    const API_KEY = "f38370c50f4dd98e1dc1f2f2946a8d6b";
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Toronto,CA&appid=${API_KEY}&units=metric`,
+      `https://wttr.in/Toronto?format=j1`,
     );
 
     if (!response.ok) throw new Error("Weather API failed");

@@ -68,51 +68,45 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Simple Grid Positioning - Debug Version */
-/* Reset all positioning first */
-.card {
-  grid-column: auto;
-  grid-row: auto;
-}
-
+/* Explicit Class-Based Grid Positioning */
 /* Top row: Welcome | Todo | Pomodoro (spans 2) */
-.card:nth-child(1) { /* Welcome card */
+.welcome-card { 
   grid-column: 1; 
   grid-row: 1; 
 }
-.card:nth-child(3) { /* Todo card (weather-card class) */
+.weather-card { /* This is the Todo card */
   grid-column: 2; 
   grid-row: 1; 
 }
-.card:nth-child(4) { /* Pomodoro card */
+.pomodoro-card { 
   grid-column: 3 / 5; 
   grid-row: 1; 
 }
 
 /* Middle row: Search (spans 3) | Quick Links */
-.card:nth-child(5) { /* Search card */
+.search-card { 
   grid-column: 1 / 4; 
   grid-row: 2; 
 }
-.card:nth-child(6) { /* Quick Links card */
+.quick-links-card { 
   grid-column: 4; 
   grid-row: 2; 
 }
 
-/* Bottom row: AI | Dev | Docs | Entertainment */
-.card:nth-child(7) { /* AI Tools */
+/* Bottom row: Use specific selectors for bookmark cards */
+.bookmark-card:nth-of-type(1) { /* AI Tools - first bookmark card */
   grid-column: 1; 
   grid-row: 3; 
 }
-.card:nth-child(8) { /* Development */
+.bookmark-card:nth-of-type(2) { /* Development - second bookmark card */
   grid-column: 2; 
   grid-row: 3; 
 }
-.card:nth-child(9) { /* Documentation */
+.bookmark-card:nth-of-type(3) { /* Documentation - third bookmark card */
   grid-column: 3; 
   grid-row: 3; 
 }
-.card:nth-child(10) { /* Entertainment */
+.bookmark-card:nth-of-type(4) { /* Entertainment - fourth bookmark card */
   grid-column: 4; 
   grid-row: 3; 
 }

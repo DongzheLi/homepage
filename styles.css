@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "FiraCode Nerd Font Mono",
+    "FiraCode Nerd Font",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    monospace;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 15, 15, 0.8) 0%,
+      rgba(26, 26, 26, 0.6) 50%,
+      rgba(42, 42, 42, 0.8) 100%
+    ),
+    url("background.jpg")
+      center/cover no-repeat fixed;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.welcome-card,
+.time-card,
+.weather-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.welcome {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+.datetime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.time-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.time-label {
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.time-value {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #4a9eff;
+  text-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+}
+
+.time-date {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+}
+
+.weather {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.location {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.search-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.search-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.search-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  outline: none;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.search-input:focus {
+  border-color: #4a9eff;
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-engines {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.engine-btn {
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.engine-btn:hover {
+  background: rgba(74, 158, 255, 0.2);
+  border-color: rgba(74, 158, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.engine-btn.active {
+  background: linear-gradient(135deg, #4a9eff, #0066cc);
+  border-color: #4a9eff;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+.bookmarks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.bookmark-group {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.bookmark-group:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.group-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a9eff;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+}
+
+.group-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+  .bookmarks {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .datetime {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .welcome {
+    font-size: 1.8rem;
+  }
+
+  .time-value {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    margin-top: 1rem;
+  }
+
+  .welcome-card,
+  .time-card,
+  .weather-card,
+  .search-card,
+  .bookmark-group {
+    padding: 1.2rem;
+  }
+
+  .header {
+    gap: 1rem;
+  }
+}
+
+.bookmark {
+  display: block;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bookmark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(74, 158, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.bookmark:hover::before {
+  left: 100%;
+}
+
+.bookmark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(74, 158, 255, 0.3);
+  transform: translateX(3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-title {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+}
+
+.bookmark-url {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  opacity: 0.8;
+}

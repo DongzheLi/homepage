@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="welcome-card">
+          <div class="welcome" id="welcomeMessage">Good morning, Wei</div>
+        </div>
+
+        <div class="time-card">
+          <div class="datetime">
+            <div class="time-section">
+              <div class="time-label">Local</div>
+              <div class="time-value" id="localTime">19:21:27</div>
+              <div class="time-date" id="localDate">Wednesday, Aug 20</div>
+            </div>
+            <div class="time-section">
+              <div class="time-label">UTC</div>
+              <div class="time-value" id="utcTime">23:21:27</div>
+              <div class="time-date" id="utcDate">Wednesday, Aug 20</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-card">
+          <div class="weather" id="weather">
+            <span>🌤️</span>
+            <span id="temp">22°C</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <div class="search-card">
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search the web..."
+          />
+          <div class="search-engines">
+            <button class="engine-btn active" data-engine="google">
+              Google
+            </button>
+            <button class="engine-btn" data-engine="duckduckgo">
+              DuckDuckGo
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bookmarks">
+        <div class="bookmark-group">
+          <div class="group-title">AI</div>
+          <div class="group-links">
+            <a href="https://claude.ai" class="bookmark">
+              <div class="bookmark-title">Claude</div>
+              <div class="bookmark-url">claude.ai</div>
+            </a>
+            <a href="https://chat.openai.com" class="bookmark">
+              <div class="bookmark-title">ChatGPT</div>
+              <div class="bookmark-url">chat.openai.com</div>
+            </a>
+            <a href="https://perplexity.ai" class="bookmark">
+              <div class="bookmark-title">Perplexity</div>
+              <div class="bookmark-url">perplexity.ai</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="bookmark-group">
+          <div class="group-title">Development</div>
+          <div class="group-links">
+            <a href="https://github.com" class="bookmark">
+              <div class="bookmark-title">GitHub</div>
+              <div class="bookmark-url">github.com</div>
+            </a>
+            <a href="https://stackoverflow.com" class="bookmark">
+              <div class="bookmark-title">Stack Overflow</div>
+              <div class="bookmark-url">stackoverflow.com</div>
+            </a>
+            <a href="https://localhost:3000" class="bookmark">
+              <div class="bookmark-title">Local Dev</div>
+              <div class="bookmark-url">localhost:3000</div>
+            </a>
+            <a href="https://npmjs.com" class="bookmark">
+              <div class="bookmark-title">npm</div>
+              <div class="bookmark-url">npmjs.com</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="bookmark-group">
+          <div class="group-title">Documentation</div>
+          <div class="group-links">
+            <a href="https://developer.mozilla.org" class="bookmark">
+              <div class="bookmark-title">MDN Docs</div>
+              <div class="bookmark-url">developer.mozilla.org</div>
+            </a>
+            <a href="https://docs.python.org" class="bookmark">
+              <div class="bookmark-title">Python Docs</div>
+              <div class="bookmark-url">docs.python.org</div>
+            </a>
+            <a href="https://reactjs.org" class="bookmark">
+              <div class="bookmark-title">React</div>
+              <div class="bookmark-url">reactjs.org</div>
+            </a>
+            <a href="https://nodejs.org/docs" class="bookmark">
+              <div class="bookmark-title">Node.js</div>
+              <div class="bookmark-url">nodejs.org</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="bookmark-group">
+          <div class="group-title">Popular</div>
+          <div class="group-links">
+            <a href="https://gmail.com" class="bookmark">
+              <div class="bookmark-title">Gmail</div>
+              <div class="bookmark-url">gmail.com</div>
+            </a>
+            <a href="https://youtube.com" class="bookmark">
+              <div class="bookmark-title">YouTube</div>
+              <div class="bookmark-url">youtube.com</div>
+            </a>
+            <a href="https://twitter.com" class="bookmark">
+              <div class="bookmark-title">Twitter</div>
+              <div class="bookmark-url">twitter.com</div>
+            </a>
+            <a href="https://reddit.com" class="bookmark">
+              <div class="bookmark-title">Reddit</div>
+              <div class="bookmark-url">reddit.com</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

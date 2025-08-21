@@ -33,22 +33,21 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
   margin-top: 2rem;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 2.5rem;
-  display: flex;
-  flex-direction: column;
+/* Card Grid Layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+  grid-auto-rows: min-content;
 }
 
-.welcome-card,
-.time-card,
-.weather-card {
+/* Base Card Styles */
+.card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -57,21 +56,54 @@ body {
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Card Size Variants */
+.card-wide {
+  grid-column: span 2;
+}
+
+/* Card Titles */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a9eff;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+}
+
+/* Welcome Card */
+.welcome-card {
+  text-align: center;
 }
 
 .welcome {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 300;
   color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   margin: 0;
 }
 
+/* Time Card */
+.time-card {
+  text-align: center;
+}
+
 .datetime {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .time-section {
@@ -101,6 +133,11 @@ body {
   color: #b0b0b0;
 }
 
+/* Weather Card */
+.weather-card {
+  text-align: center;
+}
+
 .weather {
   font-size: 1.1rem;
   color: #b0b0b0;
@@ -116,28 +153,9 @@ body {
   color: #666;
 }
 
-.search-section {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
+/* Search Card */
 .search-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.search-card:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  text-align: center;
 }
 
 .search-input {
@@ -196,90 +214,176 @@ body {
   box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
 }
 
-.bookmarks {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+
+/* Pomodoro Timer Styles */
+.pomodoro-card {
+  text-align: center;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.bookmark-group {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+.pomodoro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.bookmark-group:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.group-title {
+.pomodoro-title {
   font-size: 1.2rem;
   font-weight: 600;
   color: #4a9eff;
-  margin-bottom: 1.2rem;
-  text-align: center;
   text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
 }
 
-.group-links {
+.pomodoro-mode {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pomodoro-timer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.timer-display {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'FiraCode Nerd Font Mono', monospace;
+}
+
+.timer-progress {
+  position: relative;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring circle {
+  transition: stroke-dashoffset 1s ease;
+}
+
+.pomodoro-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.pomodoro-btn {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #4a9eff, #0066cc);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+.pomodoro-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 158, 255, 0.4);
+}
+
+.pomodoro-btn.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+.pomodoro-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.pomodoro-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a9eff;
+}
+
+/* Quick Links Card */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.8rem;
 }
 
-@media (max-width: 1024px) {
-  .bookmarks {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.2rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .datetime {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .welcome {
-    font-size: 1.8rem;
-  }
-
-  .time-value {
-    font-size: 1.5rem;
-  }
-
-  .container {
-    margin-top: 1rem;
-  }
-
-  .welcome-card,
-  .time-card,
-  .weather-card,
-  .search-card,
-  .bookmark-group {
-    padding: 1.2rem;
-  }
-
-  .header {
-    gap: 1rem;
-  }
-}
-
-.bookmark {
-  display: block;
-  padding: 1rem 1.2rem;
+.quick-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.quick-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(74, 158, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.link-icon {
+  font-size: 1.5rem;
+}
+
+.link-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Bookmark Cards */
+.bookmark-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.bookmark-item {
+  display: block;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
   color: #e0e0e0;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -287,7 +391,7 @@ body {
   overflow: hidden;
 }
 
-.bookmark::before {
+.bookmark-item::before {
   content: "";
   position: absolute;
   top: 0;
@@ -303,25 +407,64 @@ body {
   transition: left 0.5s ease;
 }
 
-.bookmark:hover::before {
+.bookmark-item:hover::before {
   left: 100%;
 }
 
-.bookmark:hover {
+.bookmark-item:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(74, 158, 255, 0.3);
   transform: translateX(3px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.bookmark-title {
+.bookmark-item .bookmark-title {
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
   color: #ffffff;
+  font-size: 0.95rem;
 }
 
-.bookmark-url {
-  font-size: 0.85rem;
+.bookmark-item .bookmark-url {
+  font-size: 0.8rem;
   color: #a0a0a0;
   opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+  }
+  
+  .card-wide {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .datetime {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .welcome {
+    font-size: 1.5rem;
+  }
+
+  .time-value {
+    font-size: 1.3rem;
+  }
+
+  .container {
+    margin-top: 1rem;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+
+  .quick-links {
+    grid-template-columns: 1fr;
+  }
 }

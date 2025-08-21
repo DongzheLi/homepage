@@ -205,3 +205,118 @@ document.addEventListener("keydown", (e) => {
     document.body.focus();
   }
 });
+
+// Pomodoro Timer Functionality
+class PomodoroTimer {
+  constructor() {
+    this.isRunning = false;
+    this.isPaused = false;
+    this.currentMode = 'focus'; // 'focus' or 'break'
+    this.timeLeft = 25 * 60; // 25 minutes in seconds
+    this.focusTime = 25 * 60;
+    this.breakTime = 5 * 60;
+    this.sessionCount = 0;
+    this.interval = null;
+    
+    this.timerDisplay = document.getElementById('timerDisplay');
+    this.modeDisplay = document.getElementById('pomodoroMode');
+    this.startPauseBtn = document.getElementById('startPauseBtn');
+    this.resetBtn = document.getElementById('resetBtn');
+    this.sessionCountDisplay = document.getElementById('sessionCount');
+    this.progressCircle = document.getElementById('progressCircle');
+    
+    this.init();
+  }
+  
+  init() {
+    this.updateDisplay();
+    this.startPauseBtn.addEventListener('click', () => this.toggleTimer());
+    this.resetBtn.addEventListener('click', () => this.resetTimer());
+  }
+  
+  toggleTimer() {
+    if (this.isRunning) {
+      this.pauseTimer();
+    } else {
+      this.startTimer();
+    }
+  }
+  
+  startTimer() {
+    this.isRunning = true;
+    this.isPaused = false;
+    this.startPauseBtn.textContent = 'Pause';
+    
+    this.interval = setInterval(() => {
+      this.timeLeft--;
+      this.updateDisplay();
+      
+      if (this.timeLeft <= 0) {
+        this.timerComplete();
+      }
+    }, 1000);
+  }
+  
+  pauseTimer() {
+    this.isRunning = false;
+    this.isPaused = true;
+    this.startPauseBtn.textContent = 'Resume';
+    clearInterval(this.interval);
+  }
+  
+  resetTimer() {
+    this.isRunning = false;
+    this.isPaused = false;
+    this.startPauseBtn.textContent = 'Start';
+    clearInterval(this.interval);
+    
+    this.timeLeft = this.currentMode === 'focus' ? this.focusTime : this.breakTime;
+    this.updateDisplay();
+  }
+  
+  timerComplete() {
+    this.isRunning = false;
+    this.startPauseBtn.textContent = 'Start';
+    clearInterval(this.interval);
+    
+    if (this.currentMode === 'focus') {
+      this.sessionCount++;
+      this.sessionCountDisplay.textContent = this.sessionCount;
+      this.currentMode = 'break';
+      this.timeLeft = this.breakTime;
+      this.modeDisplay.textContent = 'Break';
+    } else {
+      this.currentMode = 'focus';
+      this.timeLeft = this.focusTime;
+      this.modeDisplay.textContent = 'Focus';
+    }
+    
+    this.updateDisplay();
+    
+    // Simple notification
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification(`Pomodoro ${this.currentMode === 'focus' ? 'Break' : 'Focus'} time!`);
+    }
+  }
+  
+  updateDisplay() {
+    const minutes = Math.floor(this.timeLeft / 60);
+    const seconds = this.timeLeft % 60;
+    this.timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    // Update progress circle
+    const totalTime = this.currentMode === 'focus' ? this.focusTime : this.breakTime;
+    const progress = (totalTime - this.timeLeft) / totalTime;
+    const circumference = 2 * Math.PI * 36; // radius = 36
+    const offset = circumference - (progress * circumference);
+    this.progressCircle.style.strokeDashoffset = offset;
+  }
+}
+
+// Initialize Pomodoro Timer
+const pomodoroTimer = new PomodoroTimer();
+
+// Request notification permission
+if ('Notification' in window && Notification.permission === 'default') {
+  Notification.requestPermission();
+}

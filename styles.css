@@ -36,19 +36,37 @@ body {
 .container {
   max-width: 1400px;
   width: 100%;
-  margin-top: 2rem;
-}
-
-/* Optimized Layout */
-.card-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  grid-template-rows: 120px 140px 1fr;
-  gap: 1rem;
   height: calc(100vh - 4rem);
 }
 
-/* Base Card Styles */
+/* MAIN GRID LAYOUT */
+.homepage-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 2fr; /* 1/4, 1/4, 1/2 */
+  gap: 1rem;
+  height: 100%;
+}
+
+/* SECTION LAYOUTS */
+.top-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr; /* Welcome larger, Todo smaller, Pomodoro larger */
+  gap: 1rem;
+}
+
+.middle-section {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* Search 3/4, Quick Links 1/4 */
+  gap: 1rem;
+}
+
+.bottom-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 1rem;
+}
+
+/* BASE CARD STYLES */
 .card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
@@ -59,6 +77,8 @@ body {
     0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -68,55 +88,7 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Explicit Class-Based Grid Positioning */
-/* Top row: Welcome | Todo | Pomodoro (spans 2) */
-.welcome-card { 
-  grid-column: 1; 
-  grid-row: 1; 
-}
-.weather-card { /* This is the Todo card */
-  grid-column: 2; 
-  grid-row: 1; 
-}
-.pomodoro-card { 
-  grid-column: 3 / 5; 
-  grid-row: 1; 
-}
-
-/* Middle row: Search (spans 3) | Quick Links */
-.search-card { 
-  grid-column: 1 / 4; 
-  grid-row: 2; 
-}
-.quick-links-card { 
-  grid-column: 4; 
-  grid-row: 2; 
-}
-
-/* Bottom row: Use specific selectors for bookmark cards */
-.bookmark-card:nth-of-type(1) { /* AI Tools - first bookmark card */
-  grid-column: 1; 
-  grid-row: 3; 
-}
-.bookmark-card:nth-of-type(2) { /* Development - second bookmark card */
-  grid-column: 2; 
-  grid-row: 3; 
-}
-.bookmark-card:nth-of-type(3) { /* Documentation - third bookmark card */
-  grid-column: 3; 
-  grid-row: 3; 
-}
-.bookmark-card:nth-of-type(4) { /* Entertainment - fourth bookmark card */
-  grid-column: 4; 
-  grid-row: 3; 
-}
-
-/* Hide time card */
-.time-card { 
-  display: none; 
-}
-
-/* Card Titles */
+/* CARD TITLES */
 .card-title {
   font-size: 1.4rem;
   font-weight: 600;
@@ -126,7 +98,7 @@ body {
   text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
 }
 
-/* Combined Info Card */
+/* WELCOME CARD */
 .welcome-card {
   padding: 1rem;
 }
@@ -197,11 +169,12 @@ body {
   font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
 }
 
-/* Todo List */
+/* TODO CARD */
 .todo-list {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.5rem;
+  flex: 1;
 }
 
 .todo-item {
@@ -211,68 +184,130 @@ body {
   line-height: 1.4;
 }
 
-/* Time Card */
-.time-card {
+/* POMODORO CARD */
+.pomodoro-card {
   text-align: center;
-}
-
-.datetime {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.time-section {
+.pomodoro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pomodoro-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a9eff;
+  text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+}
+
+.pomodoro-mode {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pomodoro-timer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  margin: 0.5rem 0;
 }
 
-.time-label {
+.timer-display {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+}
+
+.timer-progress {
+  position: relative;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring circle {
+  transition: stroke-dashoffset 1s ease;
+}
+
+.pomodoro-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.pomodoro-btn {
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, #4a9eff, #0066cc);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
   font-size: 0.9rem;
+}
+
+.pomodoro-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 158, 255, 0.4);
+}
+
+.pomodoro-btn.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+.pomodoro-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.pomodoro-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.7rem;
   color: #888;
-  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-.time-value {
-  font-size: 1.8rem;
+.stat-value {
+  font-size: 1rem;
   font-weight: 600;
   color: #4a9eff;
-  text-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
 }
 
-.time-date {
-  font-size: 0.85rem;
-  color: #b0b0b0;
-}
-
-/* Weather Card */
-.weather-card {
-  text-align: center;
-}
-
-.weather {
-  font-size: 1.1rem;
-  color: #b0b0b0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  flex-wrap: wrap;
-}
-
-.location {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Search Card */
+/* SEARCH CARD */
 .search-card {
   text-align: center;
+  justify-content: center;
 }
 
 .search-input {
@@ -331,131 +366,12 @@ body {
   box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
 }
 
-
-/* Pomodoro Timer Styles */
-.pomodoro-card {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.pomodoro-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.pomodoro-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #4a9eff;
-  text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
-}
-
-.pomodoro-mode {
-  font-size: 0.9rem;
-  color: #a0a0a0;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.3rem 0.8rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.pomodoro-timer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.timer-display {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-family: 'FiraCode Nerd Font Mono', monospace;
-}
-
-.timer-progress {
-  position: relative;
-}
-
-.progress-ring {
-  transform: rotate(-90deg);
-}
-
-.progress-ring circle {
-  transition: stroke-dashoffset 1s ease;
-}
-
-.pomodoro-controls {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin: 1rem 0;
-}
-
-.pomodoro-btn {
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #4a9eff, #0066cc);
-  border: none;
-  border-radius: 12px;
-  color: #ffffff;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
-}
-
-.pomodoro-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(74, 158, 255, 0.4);
-}
-
-.pomodoro-btn.secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: none;
-}
-
-.pomodoro-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.pomodoro-stats {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.stat-value {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #4a9eff;
-}
-
-/* Quick Links Card */
+/* QUICK LINKS CARD */
 .quick-links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.8rem;
+  flex: 1;
 }
 
 .quick-link {
@@ -487,11 +403,12 @@ body {
   font-weight: 600;
 }
 
-/* Bookmark Cards */
+/* BOOKMARK CARDS */
 .bookmark-list {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  flex: 1;
 }
 
 .bookmark-item {
@@ -533,7 +450,7 @@ body {
   transform: translateX(3px);
 }
 
-.bookmark-item .bookmark-title {
+.bookmark-title {
   font-weight: 600;
   margin-bottom: 0.3rem;
   color: #ffffff;
@@ -541,73 +458,54 @@ body {
   line-height: 1.3;
 }
 
-.bookmark-item .bookmark-url {
+.bookmark-url {
   font-size: 0.9rem;
   color: #a0a0a0;
   opacity: 0.8;
 }
 
-/* Responsive Tiling Layout */
+/* RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
-  .card-grid {
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, minmax(100px, auto));
-    grid-template-areas:
-      "welcome welcome welcome time time time weather weather"
-      "pomodoro pomodoro pomodoro pomodoro search search search search"
-      "quick quick quick quick search search search search"
-      "ai ai ai ai dev dev dev dev"
-      "ai ai ai ai dev dev dev dev"
-      "docs docs docs docs . . . ."
-      "docs docs docs docs . . . ."
-      ". . . . . . . .";
+  .top-section {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(12, minmax(80px, auto));
-    height: auto;
-    grid-template-areas:
-      "welcome welcome welcome welcome"
-      "time time weather weather"
-      "pomodoro pomodoro pomodoro pomodoro"
-      "search search search search"
-      "quick quick quick quick"
-      "ai ai ai ai"
-      "ai ai ai ai"
-      "dev dev dev dev"
-      "dev dev dev dev"
-      "docs docs docs docs"
-      "docs docs docs docs"
-      ". . . .";
+@media (max-width: 900px) {
+  .homepage-grid {
+    grid-template-rows: auto auto 1fr;
+  }
+  
+  .top-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  
+  .middle-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  
+  .bottom-section {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 640px) {
-  .datetime {
-    flex-direction: column;
-    gap: 1.5rem;
+@media (max-width: 600px) {
+  .bottom-section {
+    grid-template-columns: 1fr;
   }
-
-  .welcome {
-    font-size: 1.5rem;
-  }
-
-  .time-value {
-    font-size: 1.3rem;
-  }
-
-  .container {
-    margin-top: 1rem;
-  }
-
-  .card {
-    padding: 1.2rem;
-  }
-
+  
   .quick-links {
     grid-template-columns: 1fr;
+  }
+  
+  .time-section {
+    min-width: 100px;
+  }
+  
+  .info-main {
+    flex-direction: column;
+    gap: 1rem;
   }
 }

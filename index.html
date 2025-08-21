@@ -11,191 +11,185 @@
   </head>
   <body>
     <div class="container">
-      <div class="card-grid">
-        <!-- Combined Info Card -->
-        <div class="card welcome-card">
-          <div class="info-main">
-            <div class="welcome-section">
-              <div class="welcome" id="welcomeMessage">Good morning, Wei</div>
-              <div class="weather-info">
-                <span id="weather-icon">🌤️</span>
-                <span id="temp">20°C</span>
-                <span class="location" id="location">📍 Markham</span>
+      <div class="homepage-grid">
+        
+        <!-- TOP ROW (1/4 height) -->
+        <div class="top-section">
+          <div class="welcome-card card">
+            <div class="info-main">
+              <div class="welcome-section">
+                <div class="welcome" id="welcomeMessage">Good morning, Wei</div>
+                <div class="weather-info">
+                  <span id="weather-icon">🌤️</span>
+                  <span id="temp">20°C</span>
+                  <span class="location" id="location">📍 Markham</span>
+                </div>
               </div>
-            </div>
-            <div class="time-section">
-              <div class="time-row">
-                <span class="time-label">LOCAL</span>
-                <span class="time-value" id="localTime">19:21:27</span>
-              </div>
-              <div class="time-row">
-                <span class="time-label">UTC</span>
-                <span class="time-value" id="utcTime">02:01:51</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Time Card -->
-        <div class="card time-card" style="display: none;">
-        </div>
-
-        <!-- Todo List Card -->
-        <div class="card weather-card">
-          <div class="card-title">Todo</div>
-          <div class="todo-list">
-            <div class="todo-item">• Review PRs</div>
-            <div class="todo-item">• Update docs</div>
-            <div class="todo-item">• Fix bug #123</div>
-          </div>
-        </div>
-
-        <!-- Pomodoro Card -->
-        <div class="card pomodoro-card">
-          <div class="pomodoro-header">
-            <div class="pomodoro-title">Pomodoro</div>
-            <div class="pomodoro-mode" id="pomodoroMode">Focus</div>
-          </div>
-          <div class="pomodoro-timer">
-            <div class="timer-display" id="timerDisplay">25:00</div>
-            <div class="timer-progress">
-              <div class="progress-ring">
-                <svg width="80" height="80">
-                  <circle cx="40" cy="40" r="36" stroke="rgba(255,255,255,0.1)" stroke-width="4" fill="none"/>
-                  <circle id="progressCircle" cx="40" cy="40" r="36" stroke="#4a9eff" stroke-width="4" fill="none" 
-                          stroke-dasharray="226" stroke-dashoffset="226" transform="rotate(-90 40 40)"/>
-                </svg>
+              <div class="time-section">
+                <div class="time-row">
+                  <span class="time-label">LOCAL</span>
+                  <span class="time-value" id="localTime">22:21:26</span>
+                </div>
+                <div class="time-row">
+                  <span class="time-label">UTC</span>
+                  <span class="time-value" id="utcTime">02:21:26</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="pomodoro-controls">
-            <button class="pomodoro-btn" id="startPauseBtn">Start</button>
-            <button class="pomodoro-btn secondary" id="resetBtn">Reset</button>
+
+          <div class="todo-card card">
+            <div class="card-title">Todo</div>
+            <div class="todo-list">
+              <div class="todo-item">• Review PRs</div>
+              <div class="todo-item">• Update docs</div>
+              <div class="todo-item">• Fix bug #123</div>
+            </div>
           </div>
-          <div class="pomodoro-stats">
-            <div class="stat">
-              <span class="stat-label">Sessions</span>
-              <span class="stat-value" id="sessionCount">0</span>
+
+          <div class="pomodoro-card card">
+            <div class="pomodoro-header">
+              <div class="pomodoro-title">Pomodoro</div>
+              <div class="pomodoro-mode" id="pomodoroMode">Focus</div>
+            </div>
+            <div class="pomodoro-timer">
+              <div class="timer-display" id="timerDisplay">25:00</div>
+              <div class="timer-progress">
+                <div class="progress-ring">
+                  <svg width="60" height="60">
+                    <circle cx="30" cy="30" r="26" stroke="rgba(255,255,255,0.1)" stroke-width="3" fill="none"/>
+                    <circle id="progressCircle" cx="30" cy="30" r="26" stroke="#4a9eff" stroke-width="3" fill="none" 
+                            stroke-dasharray="163" stroke-dashoffset="163" transform="rotate(-90 30 30)"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="pomodoro-controls">
+              <button class="pomodoro-btn" id="startPauseBtn">Start</button>
+              <button class="pomodoro-btn secondary" id="resetBtn">Reset</button>
+            </div>
+            <div class="pomodoro-stats">
+              <div class="stat">
+                <span class="stat-label">Sessions</span>
+                <span class="stat-value" id="sessionCount">0</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Search Card -->
-        <div class="card search-card card-wide">
-          <input
-            type="text"
-            class="search-input"
-            id="searchInput"
-            placeholder="Search the web... v9"
-          />
-          <div class="search-engines">
-            <button class="engine-btn active" data-engine="google">
-              Google
-            </button>
-            <button class="engine-btn" data-engine="duckduckgo">
-              DuckDuckGo
-            </button>
+        <!-- MIDDLE ROW (1/4 height) -->
+        <div class="middle-section">
+          <div class="search-card card">
+            <input
+              type="text"
+              class="search-input"
+              id="searchInput"
+              placeholder="Search the web... v10"
+            />
+            <div class="search-engines">
+              <button class="engine-btn active" data-engine="google">Google</button>
+              <button class="engine-btn" data-engine="duckduckgo">DuckDuckGo</button>
+            </div>
+          </div>
+
+          <div class="quick-links-card card">
+            <div class="card-title">Quick Links</div>
+            <div class="quick-links">
+              <a href="https://claude.ai" class="quick-link">
+                <span class="link-icon">🤖</span>
+                <span class="link-label">Claude</span>
+              </a>
+              <a href="https://github.com" class="quick-link">
+                <span class="link-icon">💻</span>
+                <span class="link-label">GitHub</span>
+              </a>
+              <a href="https://gmail.com" class="quick-link">
+                <span class="link-icon">📧</span>
+                <span class="link-label">Gmail</span>
+              </a>
+              <a href="https://youtube.com" class="quick-link">
+                <span class="link-icon">🎥</span>
+                <span class="link-label">YouTube</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Quick Links Card -->
-        <div class="card quick-links-card">
-          <div class="card-title">Quick Links</div>
-          <div class="quick-links">
-            <a href="https://claude.ai" class="quick-link">
-              <span class="link-icon">🤖</span>
-              <span class="link-label">Claude</span>
-            </a>
-            <a href="https://github.com" class="quick-link">
-              <span class="link-icon">💻</span>
-              <span class="link-label">GitHub</span>
-            </a>
-            <a href="https://gmail.com" class="quick-link">
-              <span class="link-icon">📧</span>
-              <span class="link-label">Gmail</span>
-            </a>
-            <a href="https://youtube.com" class="quick-link">
-              <span class="link-icon">🎥</span>
-              <span class="link-label">YouTube</span>
-            </a>
+        <!-- BOTTOM ROW (1/2 height) -->
+        <div class="bottom-section">
+          <div class="ai-tools-card card">
+            <div class="card-title">AI Tools</div>
+            <div class="bookmark-list">
+              <a href="https://claude.ai" class="bookmark-item">
+                <div class="bookmark-title">Claude</div>
+                <div class="bookmark-url">claude.ai</div>
+              </a>
+              <a href="https://chat.openai.com" class="bookmark-item">
+                <div class="bookmark-title">ChatGPT</div>
+                <div class="bookmark-url">chat.openai.com</div>
+              </a>
+              <a href="https://perplexity.ai" class="bookmark-item">
+                <div class="bookmark-title">Perplexity</div>
+                <div class="bookmark-url">perplexity.ai</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="development-card card">
+            <div class="card-title">Development</div>
+            <div class="bookmark-list">
+              <a href="https://github.com" class="bookmark-item">
+                <div class="bookmark-title">GitHub</div>
+                <div class="bookmark-url">github.com</div>
+              </a>
+              <a href="https://stackoverflow.com" class="bookmark-item">
+                <div class="bookmark-title">Stack Overflow</div>
+                <div class="bookmark-url">stackoverflow.com</div>
+              </a>
+              <a href="https://localhost:3000" class="bookmark-item">
+                <div class="bookmark-title">Local Dev</div>
+                <div class="bookmark-url">localhost:3000</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="documentation-card card">
+            <div class="card-title">Documentation</div>
+            <div class="bookmark-list">
+              <a href="https://developer.mozilla.org" class="bookmark-item">
+                <div class="bookmark-title">MDN Docs</div>
+                <div class="bookmark-url">developer.mozilla.org</div>
+              </a>
+              <a href="https://docs.python.org" class="bookmark-item">
+                <div class="bookmark-title">Python Docs</div>
+                <div class="bookmark-url">docs.python.org</div>
+              </a>
+              <a href="https://reactjs.org" class="bookmark-item">
+                <div class="bookmark-title">React</div>
+                <div class="bookmark-url">reactjs.org</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="entertainment-card card">
+            <div class="card-title">Entertainment</div>
+            <div class="bookmark-list">
+              <a href="https://youtube.com" class="bookmark-item">
+                <div class="bookmark-title">YouTube</div>
+                <div class="bookmark-url">youtube.com</div>
+              </a>
+              <a href="https://netflix.com" class="bookmark-item">
+                <div class="bookmark-title">Netflix</div>
+                <div class="bookmark-url">netflix.com</div>
+              </a>
+              <a href="https://reddit.com" class="bookmark-item">
+                <div class="bookmark-title">Reddit</div>
+                <div class="bookmark-url">reddit.com</div>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- AI Tools Card -->
-        <div class="card bookmark-card">
-          <div class="card-title">AI Tools</div>
-          <div class="bookmark-list">
-            <a href="https://claude.ai" class="bookmark-item">
-              <div class="bookmark-title">Claude</div>
-              <div class="bookmark-url">claude.ai</div>
-            </a>
-            <a href="https://chat.openai.com" class="bookmark-item">
-              <div class="bookmark-title">ChatGPT</div>
-              <div class="bookmark-url">chat.openai.com</div>
-            </a>
-            <a href="https://perplexity.ai" class="bookmark-item">
-              <div class="bookmark-title">Perplexity</div>
-              <div class="bookmark-url">perplexity.ai</div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Development Card -->
-        <div class="card bookmark-card">
-          <div class="card-title">Development</div>
-          <div class="bookmark-list">
-            <a href="https://github.com" class="bookmark-item">
-              <div class="bookmark-title">GitHub</div>
-              <div class="bookmark-url">github.com</div>
-            </a>
-            <a href="https://stackoverflow.com" class="bookmark-item">
-              <div class="bookmark-title">Stack Overflow</div>
-              <div class="bookmark-url">stackoverflow.com</div>
-            </a>
-            <a href="https://localhost:3000" class="bookmark-item">
-              <div class="bookmark-title">Local Dev</div>
-              <div class="bookmark-url">localhost:3000</div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Documentation Card -->
-        <div class="card bookmark-card">
-          <div class="card-title">Documentation</div>
-          <div class="bookmark-list">
-            <a href="https://developer.mozilla.org" class="bookmark-item">
-              <div class="bookmark-title">MDN Docs</div>
-              <div class="bookmark-url">developer.mozilla.org</div>
-            </a>
-            <a href="https://docs.python.org" class="bookmark-item">
-              <div class="bookmark-title">Python Docs</div>
-              <div class="bookmark-url">docs.python.org</div>
-            </a>
-            <a href="https://reactjs.org" class="bookmark-item">
-              <div class="bookmark-title">React</div>
-              <div class="bookmark-url">reactjs.org</div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Entertainment Card -->
-        <div class="card bookmark-card">
-          <div class="card-title">Entertainment</div>
-          <div class="bookmark-list">
-            <a href="https://youtube.com" class="bookmark-item">
-              <div class="bookmark-title">YouTube</div>
-              <div class="bookmark-url">youtube.com</div>
-            </a>
-            <a href="https://netflix.com" class="bookmark-item">
-              <div class="bookmark-title">Netflix</div>
-              <div class="bookmark-url">netflix.com</div>
-            </a>
-            <a href="https://reddit.com" class="bookmark-item">
-              <div class="bookmark-title">Reddit</div>
-              <div class="bookmark-url">reddit.com</div>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
 

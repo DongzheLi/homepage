@@ -43,7 +43,8 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  grid-auto-rows: auto;
+  grid-auto-rows: minmax(auto, max-content);
+  align-items: start;
 }
 
 /* Base Card Styles */
@@ -68,7 +69,7 @@ body {
 
 /* Card Size Variants */
 .card-wide {
-  grid-column: span 3;
+  grid-column: span 2;
 }
 
 /* Card Titles */
@@ -218,7 +219,6 @@ body {
 /* Pomodoro Timer Styles */
 .pomodoro-card {
   text-align: center;
-  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -90,12 +90,12 @@ body {
 
 /* CARD TITLES */
 .card-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #4a9eff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #00d4ff;
   margin-bottom: 1.2rem;
   text-align: center;
-  text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
 }
 
 /* WELCOME CARD */
@@ -118,31 +118,32 @@ body {
 }
 
 .welcome {
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 800;
   background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: none;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
 }
 
 .weather-info {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 1rem;
+  gap: 0.8rem;
+  font-size: 1.3rem;
   color: #b0b0b0;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 
 .time-section {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  min-width: 120px;
+  gap: 0.8rem;
+  min-width: 140px;
   text-align: right;
 }
 
@@ -150,21 +151,21 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
 .time-label {
-  font-size: 0.8rem;
-  color: #999;
-  font-weight: 600;
+  font-size: 1rem;
+  color: #aaa;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  min-width: 40px;
+  letter-spacing: 0.15em;
+  min-width: 50px;
 }
 
 .time-value {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 800;
   color: #4a9eff;
   font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
 }
@@ -178,10 +179,11 @@ body {
 }
 
 .todo-item {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #e0e0e0;
   opacity: 0.9;
-  line-height: 1.4;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 /* POMODORO CARD */
@@ -200,10 +202,10 @@ body {
 }
 
 .pomodoro-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #4a9eff;
-  text-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00d4ff;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
 }
 
 .pomodoro-mode {
@@ -306,8 +308,11 @@ body {
 
 /* SEARCH CARD */
 .search-card {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .search-input {
@@ -395,12 +400,12 @@ body {
 }
 
 .link-icon {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
 }
 
 .link-label {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 /* BOOKMARK CARDS */
@@ -451,15 +456,15 @@ body {
 }
 
 .bookmark-title {
-  font-weight: 600;
-  margin-bottom: 0.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.3;
 }
 
 .bookmark-url {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: #a0a0a0;
   opacity: 0.8;
 }
